@@ -2,7 +2,9 @@
 import { GraphQLClient } from 'graphql-request';
 
 // Setup GraphQL client untuk connect dengan WordPress
-const graphQLClient = new GraphQLClient('https://kerjasingapore.com/graphql');
+// Use environment variable `GRAPHQL_URL` if set (configure in Vercel Project settings)
+const GRAPHQL_URL = process.env.GRAPHQL_URL || 'https://kerjasingapore.com/graphql';
+const graphQLClient = new GraphQLClient(GRAPHQL_URL);
 
 const query = `
   query {
